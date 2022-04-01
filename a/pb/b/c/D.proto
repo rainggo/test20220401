@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package ModuleTest.Package1;
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+service Hello {
+    rpc Helloworld (HelloRequest) returns (HelloReply) {
+        option (google.api.http) = {
+            get: "/hello/helloworld"
+        };
+    };
+}
+
+
+message HelloRequest {
+    string msg = 1;
+}
+message HelloReply {
+    string msg = 1;
+    string code = 2;
+}
